@@ -7,6 +7,6 @@ colnames(data) <- c("Date", "Time", "Global_active_power", "Global_reactive_powe
 ##as.Date(data[data$Date], "%d/%m/%y")
 limit <- data[data$Date=="1/2/2007" | data$Date=="2/2/2007",]
 with(limit, hist(Global_active_power, col="red", main ="Global Active Power", xlab="Global Active Power(Kilowatts)"))
-dev.copy(png, file="plot1.png")
+dev.copy(png, file="./ExData_Plotting1/plot1.png")
 dev.off()
 

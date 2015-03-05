@@ -30,5 +30,5 @@ par(new=FALSE)
 
 #4
 with (newlimit,plot(strptime(timestamp,"%d/%m/%Y %H:%M:%S") ,Global_reactive_power,type="l", xlab= "Datetime",ylab="Global_reactive_power"))
-dev.copy(png, file="plot4.png")
+dev.copy(png, file="./ExData_Plotting1/plot4.png")
 dev.off()

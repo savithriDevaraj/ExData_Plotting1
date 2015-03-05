@@ -20,7 +20,7 @@ par(new=TRUE)
 with (newlimit, plot(strptime(timestamp,"%d/%m/%Y %H:%M:%S") ,Sub_metering_2, type="l", ann=FALSE, ylim = yrange, axes=F,col="red"))
 legend("topright",  c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1,1), lwd=c(2.5,2.5,2.5),col=c("black","red","blue")) 
 
-dev.copy(png, file="plot3.png")
+dev.copy(png, file="./ExData_Plotting1/plot3.png")
 
 par(new=FALSE)
 dev.off()
