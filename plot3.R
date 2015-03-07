@@ -12,6 +12,8 @@ Limit <- limit[,Date:=as.Date(limit$Date, "%d/%m/%y")]
 ##newlimit <- within(Limit, { timestamp=strptime(as.character(limit$Date), as.character(limit$Time))), "%d/%m/%Y %H:%M:%S") })
 newlimit <- within(Limit, { timestamp=format(as.POSIXct(paste(as.character(Limit$Date), as.character(Limit$Time))), "%d/%m/%Y %H:%M:%S") })
 
+#writing directly to png file
+png("./ExData_Plotting1/plot3.png")
 yrange<-range(c(newlimit$Sub_metering_1, newlimit$Sub_metering_2, newlimit$Sub_metering_3))
 with (newlimit, plot(strptime(timestamp,"%d/%m/%Y %H:%M:%S") ,Sub_metering_1, type="l", ylim=yrange, xlab="",ylab="Energy Sub metering"))
 par(new=TRUE)
@@ -20,7 +22,7 @@ par(new=TRUE)
 with (newlimit, plot(strptime(timestamp,"%d/%m/%Y %H:%M:%S") ,Sub_metering_2, type="l", ann=FALSE, ylim = yrange, axes=F,col="red"))
 legend("topright",  c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1,1), lwd=c(2.5,2.5,2.5),col=c("black","red","blue")) 
 
-dev.copy(png, file="./ExData_Plotting1/plot3.png",width = 480, height = 480, units = "px")
+#dev.copy(png, file="./ExData_Plotting1/plot3.png",width = 480, height = 480, units = "px")
 
 par(new=FALSE)
 dev.off()

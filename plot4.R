@@ -11,6 +11,8 @@ Limit <- limit[,Date:=as.Date(limit$Date, "%d/%m/%y")]
 
 newlimit <- within(Limit, { timestamp=format(as.POSIXct(paste(as.character(Limit$Date), as.character(Limit$Time))), "%d/%m/%Y %H:%M:%S") })
 
+#writing directly to png file
+png("./ExData_Plotting1/plot4.png")
 par(mfrow=c(2,2))
 #1
 with (newlimit,plot(strptime(timestamp,"%d/%m/%Y %H:%M:%S") ,Global_active_power,type="l", xlab= "",ylab="Global Active Power(Kilowatts)"))
@@ -30,5 +32,5 @@ par(new=FALSE)
 
 #4
 with (newlimit,plot(strptime(timestamp,"%d/%m/%Y %H:%M:%S") ,Global_reactive_power,type="l", xlab= "Datetime",ylab="Global_reactive_power"))
-dev.copy(png, file="./ExData_Plotting1/plot4.png",width = 480, height = 480, units = "px")
+#dev.copy(png, file="./ExData_Plotting1/plot4.png",width = 480, height = 480, units = "px")
 dev.off()
